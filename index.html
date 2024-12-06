@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>DigiAcademy Website</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      overflow-x: hidden;
+    }
+
+    .icon-bar {
+      background-color: #5c2751;
+      position: fixed;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .icon-bar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 15px;
+    }
+
+    .icon-bar a:hover {
+      background-color: black;
+      color: #f4f4f4;
+    }
+
+    .icon-bar a.active {
+      background-color: #d4af37;
+    }
+
+    #menu-icon {
+      display: none;
+      font-size: 25px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    #home {
+      background-image: url('big/Digiskills.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+      display: grid;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 200px;
+      transition: 0.5s;
+    }
+
+    #home:hover {
+      transform: scale(1.1);
+    }
+
+    #homeborder {
+      background-color: rgba(0, 24, 51, 0.3);
+      padding: 30px;
+    }
+
+    #home h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    #home p {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 100;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    #about {
+      background-color: #f9f9f9;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #about h2 {
+      margin-bottom: 20px;
+      color: #5c2751;
+    }
+
+    #about p {
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    #services {
+      background-color: rgba(212, 175, 55, 0.2);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px;
+      justify-content: center;
+      padding: 50px 20px;
+    }
+
+    .service-box {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: 0.5s;
+    }
+
+    .service-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .service-box:hover {
+      transform: scale(1.2);
+    }
+
+    #contact {
+      background-color: #f9f9f9;
+      padding: 50px 20px;
+    }
+
+    .contact-form {
+      width: 90%;
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: 0.5s;
+    }
+
+    .contact-form:hover {
+      transform: scale(1.1);
+    }
+
+    .contact-form h3 {
+      margin-bottom: 20px;
+    }
+
+    .contact-form label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    .contact-form button {
+      background: #d4af37;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .contact-form button:hover {
+      background-color: #5c2751;
+    }
+
+    footer {
+      background: #5c2751;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .icon-bar {
+        justify-content: space-between;
+        padding: 10px 15px;
+      }
+
+      #menu-icon {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #5c2751;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+      }
+
+      .nav-links a {
+        padding: 10px 15px;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      #home {
+        padding: 0 50px;
+        height: 400px;
+      }
+
+      #home h1 {
+        font-size: 30px;
+      }
+
+      #home p {
+        font-size: 15px;
+      }
+
+      #about p {
+        margin: 0 auto;
+        width: 95%;
+      }
+
+      #services {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="icon-bar">
+    <span id="menu-icon" class="fa fa-bars"></span>
+    <div class="nav-links">
+      <a class="active" href="#home"><span class="fa fa-home"></span> Home</a>
+      <a href="#services"><span class="fa fa-briefcase"></span> Our Services</a>
+      <a href="#contact"><span class="fa fa-envelope"></span> Contact Us</a>
+      <a href="register.html"><span class="fa fa-user"></span> Register/Login</a>
+    </div>
+  </div>
+
+  <div id="home">
+    <div id="homeborder">
+      <h1>Welcome to Digi Academy</h1>
+      <p>Your trusted platform for mastering digital skills online.</p>
+    </div>
+  </div>
+
+  <div id="about">
+    <h2>About Us</h2>
+    <p>At Digi Academy, we are passionate about equipping individuals and businesses with cutting-edge digital marketing skills. Founded by experts with years of industry experience, our mission is to bridge the gap between traditional learning and the fast-paced world of digital marketing.</p>
+  </div>
+
+  <div id="services">
+    <div class="service-box">
+      <img src="big/digital.jpg" alt="Service 1">
+      <h3 style="color: #5c2751;">Digital Marketing Courses</h3>
+      <p>- Social Media Marketing (SMM)  
+        - Pay-Per-Click Advertising (PPC)  
+        - Email Marketing  
+        - Web Analytics and Reporting  
+        - Content Marketing Strategies</p>
+    </div>
+    <div class="service-box">
+      <img src="big/seo.jpg" alt="Service 2">
+      <h3 style="color: #5c2751;">Certifications</h3>
+      <p>Gain industry-recognized certifications to showcase your expertise in digital marketing, Search Engine Optimization (SEO), writing, and design</p>
+    </div>
+    <div class="service-box">
+      <img src="big/graphic.jpg" alt="Service 3">
+      <h3 style="color: #5c2751;">Graphic Design Courses</h3>
+      <p>- Fundamentals of Design Principles  
+        - Adobe Creative Suite (Photoshop, Illustrator, etc.)  
+        - Branding and Logo Design  
+        - UI/UX Design Basics  
+        - Creating Social Media Graphics</p>
+    </div>
+  </div>
+
+  <div id="contact">
+    <div class="contact-form">
+      <h3 style="color: #5c2751; text-align: center;">Interested? Let us know!</h3>
+      <form action="#">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <label for="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Digi Academy. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
